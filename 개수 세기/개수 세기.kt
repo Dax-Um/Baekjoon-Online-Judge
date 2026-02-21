@@ -10,7 +10,9 @@ private class FastScanner {
 
     fun next(): String {
         while(!st.hasMoreTokens()) {
-            st = StringTokenizer(br.readLine())
+            val line = br.readLine() ?: throw NoSuchElementException("No more input (EOF). Check your input reading logic.")
+            if (line.isBlank()) continue
+            st = StringTokenizer(line)
         }
         return st.nextToken()
     }
@@ -26,6 +28,6 @@ fun main() {
     val v = fs.nextInt()
 
     var cnt = 0
-    for (x in arr) if (x == cnt) cnt++
+    for (x in arr) if (x == v) cnt++
     print(cnt)
 }
